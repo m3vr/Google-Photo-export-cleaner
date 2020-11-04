@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Normal",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "C:\\Users\\Desktop-Mike\\Pictures\\takeout1",
+                "C:\\Users\\Desktop-Mike\\Pictures"
+            ]
+        },
+        {
+            "name": "Verbose",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "C:\\Users\\Desktop-Mike\\Pictures\\Google Photos export",
+                "C:\\Users\\Desktop-Mike\\Pictures",
+                "--verbose"
+            ]
+        }
+    ]
+}
