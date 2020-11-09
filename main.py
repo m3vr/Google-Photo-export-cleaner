@@ -15,6 +15,7 @@ print(f"Outputting the files in: \"{args.export_dir}\".")
 
 outputFolder = "Organized photos"
 outputDir = f"{args.export_dir}\\{outputFolder}"
+totalMedia = 0
 
 try:
     os.mkdir(outputDir)
@@ -44,6 +45,8 @@ for subdir, dirs, files in os.walk(args.import_dir):
                         shutil.copyfile(filePath,f"{destPath}\\{file}")
                     except shutil.SameFileError:
                         pass
+                    else:
+                        totalMedia += 1
 
                     break
 
@@ -54,8 +57,12 @@ for subdir, dirs, files in os.walk(args.import_dir):
                 os.mkdir(destPath)
 
             ext = os.path.splitext(filePath)[1]
-            fileName = f"{photoTakenTime.year}-{photoTakenTime.month}-{photoTakenTime.day}-{photoTakenTime.hour}-{photoTakenTime.minute}{ext}"
+            fileName = f"{photoTakenTime.year}{photoTakenTime.month}{photoTakenTime.day}_{photoTakenTime.hour}{photoTakenTime.minute}{photoTakenTime.second}{ext}"
             try:
                 shutil.copyfile(filePath,f"{destPath}\\{fileName}")
             except shutil.SameFileError:
                 pass
+            else:
+                totalMedia += 1
+
+print(f"A total of {totalMedia} photos/videos are organized.")
